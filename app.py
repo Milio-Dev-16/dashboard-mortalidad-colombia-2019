@@ -89,7 +89,7 @@ app.layout = html.Div([
     html.H2('7. Muertes por sexo en cada departamento'),
     dcc.Graph(figure=barras_sexo),
 ])
-
+server = app.server
 # Ejecutar la app localmente
 if __name__ == '__main__':
     app.run_server(debug=True, port=8050)  # Cambia debug=False en producción
