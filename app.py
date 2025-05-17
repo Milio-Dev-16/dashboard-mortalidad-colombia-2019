@@ -140,5 +140,8 @@ app.layout = html.Div([
     dcc.Graph(figure=barras_sexo),
 ])
 
+server = app.server
+# Ejecutar la app localmente
+
 if __name__ == '__main__':
     app.run(debug=False, port=8050)
