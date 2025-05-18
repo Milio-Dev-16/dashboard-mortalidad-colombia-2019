@@ -82,12 +82,7 @@ Accede a: [http://127.0.0.1:8050/](http://127.0.0.1:8050/)
 
 ## Despliegue en Render
 
-1. Subir a GitHub.
-2. Crear cuenta en Render.
-3. Conectar repo y crear Web Service.
-4. Configurar:
-    - **Start Command**: `gunicorn app:server`
-    - **Plan**: Free
+https://dashboard-mortalidad-colombia-2019.onrender.com/sexo
 
 > Asegúrate de subir la carpeta `/data` con sus archivos al repositorio.
 
