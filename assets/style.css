@@ -1,0 +1,169 @@
+/* assets/style.css - Tema Colombia Oscuro */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #1E1E1E; /* Fondo Principal Oscuro */
+    color: #F5F5F5; /* Texto Principal Claro */
+}
+
+.sidebar {
+    padding: 15px;
+    background-color: #2C2C2C; /* Fondo de Elementos Oscuro */
+    border-bottom: 1px solid #444444; /* Borde Sutil */
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.sidebar h2 {
+    margin: 0;
+    font-size: 1.8em;
+    /* Color del título del sidebar ya definido en el layout de Python */
+}
+
+.content {
+    padding: 20px;
+    min-height: calc(100vh - 150px);
+}
+
+.preview-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    padding: 25px;
+    background: #2C2C2C; /* Fondo de Elementos Oscuro */
+    border-bottom: 1px solid #444444;
+    margin-bottom: 30px;
+    justify-content: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.preview-card-link {
+    display: block;
+    width: 230px;
+    height: 200px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: #333333; /* Un poco más claro para las tarjetas */
+    text-decoration: none;
+    color: #F5F5F5;
+    border: 1px solid #4A4A4A; /* Borde más visible en oscuro */
+}
+
+.preview-card-link:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    border-color: #FFCD00; /* Borde amarillo al hacer hover */
+}
+
+.preview-card-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.preview-card-content .dash-graph {
+    height: 160px;
+    width: 100%;
+}
+.preview-card-content > div:first-child { /* Contenedor del gráfico/tabla en preview */
+    height: 160px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent; /* Asegurar que el fondo del gráfico se vea */
+}
+
+
+.preview-title {
+    padding: 0 8px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+    color: #FFCD00; /* Título de preview con acento amarillo */
+    background: #2A2A2A; /* Fondo oscuro para el título */
+    flex-shrink: 0;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    border-top: 1px solid #444444;
+}
+
+.content-container {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #2C2C2C; /* Fondo de Elementos Oscuro */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+.content-container h2 { /* Títulos de cada gráfico en vista principal */
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 1.6em;
+    /* Color del título ya definido en el layout de Python (amarillo) */
+}
+
+.graph-container-main {
+    border: 1px solid #444444;
+    border-radius: 6px;
+    overflow: hidden;
+    padding: 10px;
+    background-color: #333333; /* Fondo para el área del gráfico principal */
+}
+
+/* Estilos para DataTable en tema oscuro (global) */
+.dash-spreadsheet-container .dash-spreadsheet-inner td,
+.dash-spreadsheet-container .dash-spreadsheet-inner th {
+    background-color: #2C2C2C !important; /* Fondo de celdas */
+    color: #F5F5F5 !important; /* Texto de celdas */
+    border: 1px solid #444444 !important; /* Bordes de celdas */
+}
+
+.dash-spreadsheet-container .dash-header {
+    background-color: #1E1E1E !important; /* Fondo de cabecera */
+    color: #FFCD00 !important; /* Texto de cabecera (amarillo) */
+    font-weight: bold;
+}
+
+/* Ajustes específicos para DataTable en PREVIEW para que se vea mejor */
+.preview-card-content .dash-spreadsheet-container .dash-spreadsheet-inner td,
+.preview-card-content .dash-spreadsheet-container .dash-spreadsheet-inner th {
+    font-size: 10px !important;
+    padding: 3px !important;
+}
+.preview-card-content .dash-spreadsheet-container .dash-header {
+    padding: 3px !important;
+    font-size: 11px !important;
+}
+.preview-card-content .dash-spreadsheet-container .dash-cell {
+    padding: 3px !important;
+    line-height: 1.2;
+}
+
+
+.welcome-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(80vh - 200px);
+    text-align: center;
+}
+.welcome-container h1 {
+    font-size: 2.5em;
+    /* color ya definido en python */
+    margin-bottom: 20px;
+}
+.welcome-container p {
+    font-size: 1.2em;
+    /* color ya definido en python */
+}
