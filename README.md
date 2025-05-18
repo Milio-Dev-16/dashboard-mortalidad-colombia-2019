@@ -84,8 +84,6 @@ Accede a: [http://127.0.0.1:8050/](http://127.0.0.1:8050/)
 
 https://dashboard-mortalidad-colombia-2019.onrender.com/sexo
 
-> Asegúrate de subir la carpeta `/data` con sus archivos al repositorio.
-
 ## Autor
 Emilio Velandia
 
