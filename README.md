@@ -65,7 +65,7 @@ Los datos utilizados en este proyecto provienen de los siguientes archivos (ubic
 ## Configuración y Ejecución Local
 
 ```bash
-git clone https://github.com/<tu-usuario>/MORTALIDAD_COLOMBIA.git
+git clone https://github.com/Milio-Dev-16/dashboard-mortalidad-colombia-2019.git
 cd MORTALIDAD_COLOMBIA
 
 python -m venv .venv
