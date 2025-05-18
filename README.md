@@ -51,8 +51,6 @@ Los datos utilizados en este proyecto provienen de los siguientes archivos (ubic
 - Anexo3.Divipola_CE_15-03-23.xlsx
 - departamentos_colombia__plotly.geojson
 
-*(Nota: En un proyecto con datos reales de producción, se detallaría la fuente oficial, por ejemplo, DANE - Departamento Administrativo Nacional de Estadística de Colombia, y la fecha de extracción).*
-
 ## Tecnologías Utilizadas
 - Python 3.x
 - Dash
