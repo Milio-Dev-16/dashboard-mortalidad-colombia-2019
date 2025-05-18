@@ -43,9 +43,7 @@ except FileNotFoundError as e:
     divipola = pd.DataFrame()
     geojson_departamentos = {"type": "FeatureCollection", "features": []}
 
-# ========== PREPROCESAMIENTO (igual que antes, con manejo de DataFrames vacíos) ==========
-# ... (El código de preprocesamiento se mantiene, asegúrate que maneja bien los DF vacíos) ...
-# Preprocesamiento (se ejecutará incluso si los datos están vacíos, lo que podría generar advertencias o errores si se esperan ciertas columnas)
+# ========== PREPROCESAMIENTO ==========
 if not mortalidad.empty:
     mortalidad['COD_DEPARTAMENTO'] = mortalidad['COD_DEPARTAMENTO'].astype(str).str.zfill(2)
     dep_muertes = mortalidad.groupby('COD_DEPARTAMENTO').size().reset_index(name='Total_Muertes')
