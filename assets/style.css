@@ -1,169 +1,282 @@
-/* assets/style.css - Tema Colombia Oscuro */
+/* assets/style.css - Tema Colombia Oscuro Adaptable */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #1E1E1E; /* Fondo Principal Oscuro */
     color: #F5F5F5; /* Texto Principal Claro */
+    font-size: 16px; /* Tamaño de fuente base para unidades relativas (em, rem) */
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevenir scroll horizontal en el body */
 }
+
+/* Contenedor principal de la aplicación (el Div más externo en app.py) */
+/* Si se le da un ID como 'app-container', se puede usar: */
+/* #app-container { */
+/* max-width: 100%; */
+/* } */
 
 .sidebar {
     padding: 15px;
-    background-color: #2C2C2C; /* Fondo de Elementos Oscuro */
-    border-bottom: 1px solid #444444; /* Borde Sutil */
+    background-color: #2C2C2C;
+    border-bottom: 1px solid #444444;
     margin-bottom: 20px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    box-sizing: border-box; /* Incluir padding y borde en el ancho/alto total */
 }
 
 .sidebar h2 {
     margin: 0;
-    font-size: 1.8em;
-    /* Color del título del sidebar ya definido en el layout de Python */
+    font-size: 1.6em; /* Relativo al font-size del body */
+    word-wrap: break-word; /* Para títulos largos */
 }
 
-.content {
+.content { /* Contenedor para el page-content */
     padding: 20px;
-    min-height: calc(100vh - 150px);
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%; /* Asegurar que no exceda el viewport */
+    overflow-x: hidden; /* Prevenir desbordamiento horizontal interno */
 }
 
 .preview-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 25px;
-    padding: 25px;
-    background: #2C2C2C; /* Fondo de Elementos Oscuro */
+    gap: 20px;
+    padding: 20px;
+    background: #2C2C2C;
     border-bottom: 1px solid #444444;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
     justify-content: center;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    box-sizing: border-box;
 }
 
 .preview-card-link {
-    display: block;
-    width: 230px;
+    display: flex; /* Cambiado a flex para mejor control interno */
+    flex-direction: column; /* Apilar contenido verticalmente */
+    flex-basis: 220px;
+    flex-grow: 1;
+    max-width: 250px; /* Ligeramente aumentado para mejor proporción */
+    min-width: 200px; /* Evitar que se encojan demasiado */
     height: 200px;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background: #333333; /* Un poco más claro para las tarjetas */
+    background: #333333;
     text-decoration: none;
     color: #F5F5F5;
-    border: 1px solid #4A4A4A; /* Borde más visible en oscuro */
+    border: 1px solid #4A4A4A;
 }
 
 .preview-card-link:hover {
-    transform: translateY(-6px) scale(1.03);
+    transform: translateY(-6px) scale(1.02); /* Reducir un poco el scale */
     box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-    border-color: #FFCD00; /* Borde amarillo al hacer hover */
+    border-color: #FFCD00;
 }
 
-.preview-card-content {
+.preview-card-content { /* Este div está dentro del Link */
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
 }
 
-.preview-card-content .dash-graph {
-    height: 160px;
-    width: 100%;
-}
 .preview-card-content > div:first-child { /* Contenedor del gráfico/tabla en preview */
-    height: 160px;
+    flex-grow: 1; /* Permitir que esta área ocupe el espacio disponible */
+    min-height: 0; /* Necesario para flex-grow en algunos contextos */
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: transparent; /* Asegurar que el fondo del gráfico se vea */
+    background-color: transparent;
+    overflow: hidden; /* Importante para que el contenido de la preview no se desborde */
+    padding: 5px; /* Pequeño padding interno */
+    box-sizing: border-box;
+}
+
+.preview-card-content .dash-graph { /* Específico para dcc.Graph dentro de la preview */
+    /* El style en Python (height:160px) tiene precedencia, aquí aseguramos el ancho */
+    width: 100% !important;
+    max-height: 100%; /* Para que no se desborde del div padre */
+}
+.preview-card-content #preview-tabla-causas .dash-spreadsheet-container {
+    height: 100% !important; /* Asegurar que la tabla preview use la altura del contenedor */
 }
 
 
 .preview-title {
     padding: 0 8px;
     text-align: center;
-    font-size: 13px;
+    font-size: 0.8em; /* Ligeramente más pequeño y relativo */
     font-weight: 600;
-    color: #FFCD00; /* Título de preview con acento amarillo */
-    background: #2A2A2A; /* Fondo oscuro para el título */
-    flex-shrink: 0;
+    color: #FFCD00;
+    background: #2A2A2A;
+    flex-shrink: 0; /* No permitir que se encoja */
     height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
     border-top: 1px solid #444444;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.content-container {
+.content-container { /* Contenedor para cada gráfico principal */
     margin-bottom: 30px;
-    padding: 20px;
-    background-color: #2C2C2C; /* Fondo de Elementos Oscuro */
+    padding: 15px;
+    background-color: #2C2C2C;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    box-sizing: border-box;
 }
 
-.content-container h2 { /* Títulos de cada gráfico en vista principal */
+.content-container h2 {
     text-align: center;
     margin-top: 0;
-    margin-bottom: 25px;
-    font-size: 1.6em;
-    /* Color del título ya definido en el layout de Python (amarillo) */
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    word-wrap: break-word;
 }
 
-.graph-container-main {
+.graph-container-main { /* Div que envuelve directamente al dcc.Graph o dash_table.DataTable principal */
     border: 1px solid #444444;
     border-radius: 6px;
     overflow: hidden;
     padding: 10px;
-    background-color: #333333; /* Fondo para el área del gráfico principal */
+    background-color: #333333;
+    width: 100%; /* Asegurar que ocupe el ancho del .content-container */
+    box-sizing: border-box;
 }
+
+/* dcc.Graph dentro de .graph-container-main */
+.graph-container-main .dash-graph {
+    width: 100% !important; /* Forzar ancho completo */
+    /* La altura se define en el 'style' del dcc.Graph en Python con 'vh' */
+}
+
+/* dash_table.DataTable dentro de .graph-container-main */
+.graph-container-main .dash-table-container {
+    width: 100%; /* Asegurar que la tabla ocupe el ancho */
+    box-sizing: border-box;
+}
+.graph-container-main .dash-spreadsheet-container {
+     width: 100% !important; /* Para que la tabla use el ancho disponible */
+}
+
 
 /* Estilos para DataTable en tema oscuro (global) */
 .dash-spreadsheet-container .dash-spreadsheet-inner td,
 .dash-spreadsheet-container .dash-spreadsheet-inner th {
-    background-color: #2C2C2C !important; /* Fondo de celdas */
-    color: #F5F5F5 !important; /* Texto de celdas */
-    border: 1px solid #444444 !important; /* Bordes de celdas */
+    background-color: #2C2C2C !important;
+    color: #F5F5F5 !important;
+    border: 1px solid #444444 !important;
+    font-size: 0.85em; /* Reducido y relativo */
+    padding: 6px 8px; /* Ajustar padding */
 }
 
 .dash-spreadsheet-container .dash-header {
-    background-color: #1E1E1E !important; /* Fondo de cabecera */
-    color: #FFCD00 !important; /* Texto de cabecera (amarillo) */
+    background-color: #1E1E1E !important;
+    color: #FFCD00 !important;
     font-weight: bold;
+    font-size: 0.9em; /* Relativo */
 }
 
-/* Ajustes específicos para DataTable en PREVIEW para que se vea mejor */
+/* Ajustes específicos para DataTable en PREVIEW */
 .preview-card-content .dash-spreadsheet-container .dash-spreadsheet-inner td,
 .preview-card-content .dash-spreadsheet-container .dash-spreadsheet-inner th {
-    font-size: 10px !important;
-    padding: 3px !important;
+    font-size: 9px !important; /* Ligeramente más pequeño */
+    padding: 2px 4px !important; /* Más compacto */
+    max-width: none !important; /* Permitir que se ajuste al contenido de la celda si es posible */
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+.preview-card-content .dash-spreadsheet-container .dash-header th div { /* Para que los títulos de cabecera no se corten tanto */
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+    max-height: 2.5em; /* Limitar altura del texto del header */
+    line-height: 1.1;
 }
 .preview-card-content .dash-spreadsheet-container .dash-header {
-    padding: 3px !important;
-    font-size: 11px !important;
+    padding: 2px !important;
+    font-size: 10px !important;
 }
 .preview-card-content .dash-spreadsheet-container .dash-cell {
-    padding: 3px !important;
+    padding: 2px 4px !important;
     line-height: 1.2;
 }
-
 
 .welcome-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: calc(80vh - 200px);
+    min-height: 60vh; /* Altura mínima relativa */
     text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
 }
 .welcome-container h1 {
-    font-size: 2.5em;
-    /* color ya definido en python */
+    font-size: 2.0em; /* Ligeramente más pequeño y relativo */
     margin-bottom: 20px;
 }
 .welcome-container p {
-    font-size: 1.2em;
-    /* color ya definido en python */
+    font-size: 1.0em; /* Relativo */
+}
+
+/* Media Query para pantallas más pequeñas (ejemplo) */
+@media (max-width: 768px) {
+    .sidebar h2 {
+        font-size: 1.4em;
+    }
+    .preview-container {
+        gap: 15px;
+        padding: 15px;
+    }
+    .preview-card-link {
+        flex-basis: 100%; /* Una tarjeta por fila en pantallas muy pequeñas */
+        max-width: 100%;
+    }
+    .content-container h2 {
+        font-size: 1.3em;
+    }
+    .welcome-container h1 {
+        font-size: 1.8em;
+    }
+    .welcome-container p {
+        font-size: 0.9em;
+    }
+
+    /* Ajustar padding de celdas de tablas para pantallas pequeñas */
+    .dash-spreadsheet-container .dash-spreadsheet-inner td,
+    .dash-spreadsheet-container .dash-spreadsheet-inner th {
+        padding: 4px 6px;
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px; /* Reducir tamaño de fuente base para móviles */
+    }
+    .sidebar h2 {
+        font-size: 1.2em;
+    }
+    .content-container h2 {
+        font-size: 1.1em;
+    }
+     .preview-card-link {
+        height: 180px; /* Reducir altura de previews */
+    }
+    .preview-card-content > div:first-child { /* Contenedor del gráfico/tabla en preview */
+        height: 140px;
+    }
+    .preview-title {
+        height: 40px;
+        font-size: 0.75em;
+    }
 }

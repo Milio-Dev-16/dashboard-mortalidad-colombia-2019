@@ -70,7 +70,6 @@ python -m venv .venv
 # Activar entorno:
 # Windows: .venv\Scripts\activate
 # macOS/Linux: source .venv/bin/activate
-
 pip install -r requirements.txt
 
 python app.py
@@ -79,13 +78,35 @@ python app.py
 Accede a: [http://127.0.0.1:8050/](http://127.0.0.1:8050/)
 
 ## Despliegue en Render
+Esta aplicación está preparada para ser desplegada en [Render](https://render.com).
 
+### Pasos para el despliegue:
+
+1. **Sube el proyecto a un repositorio en GitHub.**
+
+2. **Crea una cuenta en [Render](https://render.com) (si aún no tienes una).**
+
+3. **Conecta tu cuenta de GitHub a Render.**
+
+4. **Crea un nuevo _Web Service_ en Render y selecciona tu repositorio.**
+
+### Configuración del servicio:
+
+- **Name:** Elige un nombre para tu aplicación (ej. `mortalidad-colombia-dashboard`)
+- **Region:** Selecciona la región más cercana a Bogotá, Colombia (ej. `South America (São Paulo)`)
+- **Branch:** La rama del repositorio que deseas desplegar (`main` o `master`)
+- **Root Directory:** Déjalo en blanco si `app.py` y `requirements.txt` están en la raíz
+- **Runtime:** Python 3 (Render lo detectará automáticamente)
+- **Build Command:**  
+  ```bash
+  pip install -r requirements.txt
+
+
+### URL Final
 https://dashboard-mortalidad-colombia-2019.onrender.com/sexo
 
 ## Autor
 Emilio Velandia
-
-## Licencia
 
 
 
